@@ -1,0 +1,45 @@
+# Snakemake workflow for the SV pathogenicity ablation project.
+# Run inside WSL:  source scripts/wsl_env.sh && snakemake -s workflow/Snakefile -j 14 <target>
+# Targets: truth, sim_call, features, audit, model, report
+import json, os
+DATA = os.environ.get("DNA_DATA", os.path.expanduser("~/dna_data"))
+REP = int(config.get("replicate", 0))
+BATCHES = [f"B{i:03d}" for i in range(int(config.get("n_batches", 40)))]
+
+rule truth:
+    output: "data/processed/truthset_matched.parquet", "data/processed/batches.parquet"
+    shell: "python -m src.truthset.build_truthset && python -m src.truthset.make_batches"
+
+rule sim:
+    input: "data/processed/batches.parquet"
+    output: DATA + "/interim/sim/{b}_r%d/sim_manifest.json" % REP
+    shell: "python -m src.sim.run_batch --batch {wildcards.b} --replicate %d --techs hifi" % REP
+
+rule call:
+    input: DATA + "/interim/sim/{b}_r%d/sim_manifest.json" % REP
+    output: DATA + "/interim/sim/{b}_r%d/hifi.cutesv.vcf.gz" % REP
+    shell: "python -m src.calling.run_calling --batch {wildcards.b} --replicate %d --techs short,hifi --rm-fastq" % REP
+
+rule feat:
+    input: DATA + "/interim/sim/{b}_r%d/hifi.cutesv.vcf.gz" % REP
+    output: DATA + "/interim/feat/base/{b}_r%d.parquet" % REP
+    shell: "python -m src.features.build_features --batch {wildcards.b} --replicate %d" % REP
+
+rule sim_call:
+    input: expand(DATA + "/interim/sim/{b}_r%d/hifi.cutesv.vcf.gz" % REP, b=BATCHES)
+
+rule features:
+    input: expand(DATA + "/interim/feat/base/{b}_r%d.parquet" % REP, b=BATCHES)
+    output: "data/processed/features_all.parquet"
+    shell: "python -m src.features.assemble"
+
+rule audit:
+    input: "data/processed/features_all.parquet"
+    shell: "python -m src.validation.sim_qc && python -m src.validation.leakage"
+
+rule model:
+    input: "data/processed/features_all.parquet"
+    shell: "python -m src.modelling.run_experiment --features {input} --cohort both --arms A,B,O --models xgb,lr,rf,mlp"
+
+rule report:
+    shell: "python -m src.modelling.analysis"

@@ -1,0 +1,65 @@
+{
+ "n": 4030,
+ "n_path": 2015,
+ "schema": {
+  "no_null_keys": true,
+  "start_lt_end": true,
+  "svlen_consistent": true,
+  "chrom_allowed": true,
+  "label_values": true,
+  "unique_sv_id": true,
+  "cross_label_conflicts": 0,
+  "near_duplicates_ro80": 0
+ },
+ "size_ks": {
+  "stat": 0.027791563275434243,
+  "p": 0.41794760446730206
+ },
+ "type_counts": {
+  "0": {
+   "DEL": 1883,
+   "DUP": 132
+  },
+  "1": {
+   "DEL": 1883,
+   "DUP": 132
+  }
+ },
+ "source_counts": {
+  "0": {
+   "clinvar": 317,
+   "gnomad_sv": 1698
+  },
+  "1": {
+   "clinvar": 2015,
+   "gnomad_sv": 0
+  }
+ },
+ "baselines": {
+  "size_only": {
+   "auprc": 0.5039842180082853,
+   "auroc": 0.511602312679716,
+   "prevalence": 0.5
+  },
+  "type_only": {
+   "auprc": 0.48883691091229015,
+   "auroc": 0.4835392127283586,
+   "prevalence": 0.5
+  },
+  "chrom_only": {
+   "auprc": 0.5229229811695134,
+   "auroc": 0.5269398863363485,
+   "prevalence": 0.5
+  },
+  "position_only": {
+   "auprc": 0.5098489823732772,
+   "auroc": 0.5011347893281777,
+   "prevalence": 0.5
+  },
+  "size+type": {
+   "auprc": 0.506927642472131,
+   "auroc": 0.5142100499356563,
+   "prevalence": 0.5
+  }
+ }
+}

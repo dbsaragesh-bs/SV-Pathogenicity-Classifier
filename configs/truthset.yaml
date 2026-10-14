@@ -1,0 +1,32 @@
+# Truth-set curation settings (P1). No thresholds are hard-coded in code.
+build: GRCh38
+chroms: [chr1, chr2, chr3, chr4, chr5, chr6, chr7, chr8, chr9, chr10, chr11, chr12,
+         chr13, chr14, chr15, chr16, chr17, chr18, chr19, chr20, chr21, chr22]
+types: [DEL, DUP]
+min_svlen: 50
+max_svlen: 1000000          # compute-driven cap (see LOG D8); raise for full-scale runs
+flank: 50000                # window flank each side (bp)
+max_window_n_frac: 0.01     # reject SV whose window has >1% N
+min_review_stars: 1         # ClinVar: criteria provided (>=1 star)
+gold_review: ["reviewed by expert panel", "practice guideline"]
+clinvar_pathogenic: ["Pathogenic", "Likely pathogenic", "Pathogenic/Likely pathogenic"]
+clinvar_benign: ["Benign", "Likely benign", "Benign/Likely benign"]
+clinvar_ok_review:
+  - "criteria provided, single submitter"
+  - "criteria provided, multiple submitters, no conflicts"
+  - "reviewed by expert panel"
+  - "practice guideline"
+gnomad_min_af: 0.01
+gnomad_max_svlen_for_benign: 1000000
+max_ci_frac: 0.10           # drop if dbVar start/end CI wider than this fraction of svlen (and >1kb)
+conflict_ro: 0.5            # benign/pathogenic reciprocal overlap that removes both
+dedup_ro: 0.8               # near-duplicate collapse
+group_ro: 0.5               # grouping for splits
+size_bin_decades: 0.25      # log10 width of matching bins
+seed: 20261003
+zygosity: het
+target_per_class: 2000      # compute-driven cap on the matched set (LOG D9)
+batch_size: 150
+batch_min_gap: 1000000
+locus_pad: 100000          # padding used when capping local density
+max_per_locus: 12

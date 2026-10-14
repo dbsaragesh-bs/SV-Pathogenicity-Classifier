@@ -1,0 +1,4 @@
+group,n,exon_status_changed,gene_count_changed,bp_in_exon_changed,in_segdup,median_svlen
+"B right, A wrong",19,0.0,0.0,0.0,0.2631578947368421,44143.0
+"A right, B wrong",31,0.0,0.0,0.0,0.1935483870967742,8109.0
+all rows,3510,0.0,0.0,0.010256410256410256,0.07492877492877494,944.5

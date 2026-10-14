@@ -1,0 +1,87 @@
+{
+ "nuisance_only": {
+  "auprc": 0.5491148914553325,
+  "auroc": 0.5278759571194818,
+  "prevalence": 0.5336182336182336,
+  "n": 3510
+ },
+ "size_only": {
+  "auprc": 0.567704715858394,
+  "auroc": 0.5457323486734456,
+  "prevalence": 0.5336182336182336,
+  "n": 3510
+ },
+ "type_only": {
+  "auprc": 0.5280950582179126,
+  "auroc": 0.4852315693449107,
+  "prevalence": 0.5336182336182336,
+  "n": 3510
+ },
+ "chrom_only": {
+  "auprc": 0.5710817377631433,
+  "auroc": 0.5425829090431137,
+  "prevalence": 0.5336182336182336,
+  "n": 3510
+ },
+ "position_only": {
+  "auprc": 0.5506371551350318,
+  "auroc": 0.5148785053069028,
+  "prevalence": 0.5336182336182336,
+  "n": 3510
+ },
+ "n_callers_only": {
+  "auprc": 0.5476479194769723,
+  "auroc": 0.5304195784809438,
+  "prevalence": 0.5336182336182336,
+  "n": 3510
+ },
+ "label_shuffle_armA": {
+  "auprc": 0.5410319496820664,
+  "auroc": 0.5128234523259345,
+  "prevalence": 0.5336182336182336,
+  "n": 3510
+ },
+ "real_armA_reference": {
+  "auprc": 0.9856931390375931,
+  "auroc": 0.9870235846764344,
+  "prevalence": 0.5336182336182336,
+  "n": 3510
+ },
+ "adversarial_pipeline_cols": {
+  "auprc": 0.562492705927041,
+  "auroc": 0.5300542937104812,
+  "prevalence": 0.5336182336182336,
+  "n": 3510
+ },
+ "source_swap_train_af_test_clinvar": {
+  "auprc": 0.9782702047391889,
+  "auroc": 0.8895768718184894,
+  "prevalence": 0.8772833723653396,
+  "n": 2135
+ },
+ "source_swap_train_clinvar_test_af": {
+  "auprc": 0.9771778350371543,
+  "auroc": 0.9635901567732855,
+  "prevalence": 0.5766625615763546,
+  "n": 3248
+ },
+ "identical_feature_rows": 0,
+ "identical_feature_rows_cross_group": 0,
+ "top_features_armA": {
+  "a_ann_n_exons_hit": 0.33053508400917053,
+  "a_ann_max_cds_frac_affected": 0.1873239278793335,
+  "a_ann_cds_overlap_bp_log": 0.08100801706314087,
+  "a_ann_segdup_frac": 0.025598060339689255,
+  "a_ann_n_genes_disrupted": 0.024347538128495216,
+  "a_delly_present": 0.01932479254901409,
+  "a_ann_rep_ltr_frac": 0.015615059994161129,
+  "s_r_mapq_mean": 0.011856310069561005,
+  "a_svlen_log": 0.011523894034326077,
+  "s_mapq_mean": 0.011142684146761894,
+  "a_delly_qual": 0.010951515287160873,
+  "a_ann_rep_allrep_frac": 0.00944844912737608,
+  "a_ann_rep_l1_frac": 0.009047741070389748,
+  "a_ann_trf_frac": 0.009035060182213783,
+  "a_manta_sr_ref": 0.008842180483043194
+ }
+}

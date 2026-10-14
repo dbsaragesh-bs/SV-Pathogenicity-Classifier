@@ -1,0 +1,14 @@
+{
+ "detect": {
+  "sim_short_delly": 0.8497229916897507,
+  "real_short": 0.10576923076923077,
+  "sim_hifi": 0.9584487534626038,
+  "real_hifi": 0.6442307692307693
+ },
+ "adversarial_auc_short": 0.9704511175099411,
+ "adversarial_auc_long": 0.9814079889569494,
+ "real_pred_pathogenic_frac_A": 0.0,
+ "n_real_scored_A": 11,
+ "real_pred_pathogenic_frac_B": 0.0,
+ "n_real_scored_B": 11
+}

@@ -1,0 +1,22 @@
+{
+ "dataset": "dataset_v1",
+ "files": {
+  "batches.parquet": "3f58a6e507144fb9d0f39b39830fda5859a2612940b243330e5a6b730d76b7ef",
+  "features_all.parquet": "d75ad5cbf540efafc7b6936e9f8076bfaca527066fbbaba7e0e7e3e300e4da1a",
+  "features_all_fp.parquet": "bfaab3fc0de9a93ad3b77f769f88b6a6cc0fd6063b5faa8627a03e01c84469e7",
+  "features_partial.parquet": "9a4736c8f10d1b4bb118b78470fe90cce5c3bf65bd9bb5c01154f5cc1acc439e",
+  "features_partial_fp.parquet": "4fea6b695744f66611c8bd8aa45c5493d822ee8a9d5fe46391fa01319ad3440c",
+  "nuisance.parquet": "df668dbb4d0906b0d0285a53acc22e248259ffddf034b0e81c1c383b79ce2277",
+  "pilot_batches.parquet": "2abe9a7f6ef55059031717a94e03886b4cc688f1235f625e4654b479b688e7b8",
+  "real_batches.parquet": "298677bb5145a907aaf4548625701d4d540cccc3e9c52d95e4039866e163ab4b",
+  "truthset_matched.parquet": "802cf3a5d395d75190df9fba43814da415ec2654b83cc77dd83bdf5a070c92ac",
+  "truthset_matched_full.parquet": "9b67966267178c76f9aaef893f062defe4b9bf62c4517da319f6038b5353b35b",
+  "truthset_natural.parquet": "a892e641c0b850c8089e92e9063d0dc59a83bd90db3b3ffa174be7f50c915415",
+  "truthset_manifest.json": "8e7270abee962b8df0c2a46e3a1e23d0f988d39a8d55cfa320bf9f968f25fbca"
+ },
+ "configs": {
+  "calling.yaml": "f34c56c65dcb3f18a3407a64fd6c3ca0d3ab61cc97238e417c5e9e5db270842c",
+  "simulation.yaml": "38f32c0cd74e3d803fa4bf9cdec32b76d47be03306bcc7727680bd4d86c4e41e",
+  "truthset.yaml": "dc88c44980348aed87a23ddc5c98fff445a1fbb3518d7ccb310f6fc07cc8a357"
+ }
+}

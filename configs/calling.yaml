@@ -1,0 +1,9 @@
+threads: 14
+minimap2_preset: {hifi: map-hifi, ont: map-ont}
+delly: {min_mapq: 1}
+sniffles: {minsupport: 2, minsvlen: 50, mapq: 10}
+cutesv:
+  min_support: 2
+  min_size: 50
+  hifi: {bias_ins: 1000, dr_ins: 0.9, bias_del: 1000, dr_del: 0.5}
+  ont:  {bias_ins: 100,  dr_ins: 0.3, bias_del: 100,  dr_del: 0.3}

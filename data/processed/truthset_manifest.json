@@ -1,0 +1,182 @@
+{
+ "build": "GRCh38",
+ "config": {
+  "build": "GRCh38",
+  "chroms": [
+   "chr1",
+   "chr2",
+   "chr3",
+   "chr4",
+   "chr5",
+   "chr6",
+   "chr7",
+   "chr8",
+   "chr9",
+   "chr10",
+   "chr11",
+   "chr12",
+   "chr13",
+   "chr14",
+   "chr15",
+   "chr16",
+   "chr17",
+   "chr18",
+   "chr19",
+   "chr20",
+   "chr21",
+   "chr22"
+  ],
+  "types": [
+   "DEL",
+   "DUP"
+  ],
+  "min_svlen": 50,
+  "max_svlen": 1000000,
+  "flank": 50000,
+  "max_window_n_frac": 0.01,
+  "min_review_stars": 1,
+  "gold_review": [
+   "reviewed by expert panel",
+   "practice guideline"
+  ],
+  "clinvar_pathogenic": [
+   "Pathogenic",
+   "Likely pathogenic",
+   "Pathogenic/Likely pathogenic"
+  ],
+  "clinvar_benign": [
+   "Benign",
+   "Likely benign",
+   "Benign/Likely benign"
+  ],
+  "clinvar_ok_review": [
+   "criteria provided, single submitter",
+   "criteria provided, multiple submitters, no conflicts",
+   "reviewed by expert panel",
+   "practice guideline"
+  ],
+  "gnomad_min_af": 0.01,
+  "gnomad_max_svlen_for_benign": 1000000,
+  "max_ci_frac": 0.1,
+  "conflict_ro": 0.5,
+  "dedup_ro": 0.8,
+  "group_ro": 0.5,
+  "size_bin_decades": 0.25,
+  "seed": 20261003,
+  "zygosity": "het",
+  "target_per_class": 2000,
+  "batch_size": 150,
+  "batch_min_gap": 1000000,
+  "locus_pad": 100000,
+  "max_per_locus": 12
+ },
+ "waterfall": [
+  {
+   "step": "clinvar_raw_rows_all_types",
+   "n": 9223698
+  },
+  {
+   "step": "clinvar_GRCh38_DELDUP_autosomal_all_labels",
+   "n": 247113,
+   "n_path": 133612,
+   "n_benign": 53982
+  },
+  {
+   "step": "clinvar_path_or_benign",
+   "n": 187594,
+   "n_path": 133612,
+   "n_benign": 53982
+  },
+  {
+   "step": "clinvar_review>=1star",
+   "n": 170649,
+   "n_path": 121697,
+   "n_benign": 48952
+  },
+  {
+   "step": "gnomad_common_PASS_DELDUP",
+   "n": 32004,
+   "n_path": 0,
+   "n_benign": 32004
+  },
+  {
+   "step": "combined",
+   "n": 202653,
+   "n_path": 121697,
+   "n_benign": 80956
+  },
+  {
+   "step": "drop_wide_CI",
+   "n": 202559,
+   "n_path": 121603,
+   "n_benign": 80956
+  },
+  {
+   "step": "size_filter",
+   "n": 37337,
+   "n_path": 4841,
+   "n_benign": 32496
+  },
+  {
+   "step": "window_inside_chrom_and_N<=1%",
+   "n": 36174,
+   "n_path": 4813,
+   "n_benign": 31361
+  },
+  {
+   "step": "remove_pathogenic_benign_conflicts",
+   "n": 36108,
+   "n_path": 4779,
+   "n_benign": 31329
+  },
+  {
+   "step": "dedup_ro80",
+   "n": 34374,
+   "n_path": 3964,
+   "n_benign": 30410
+  },
+  {
+   "step": "cap_local_density(<= 12 SVs per overlapping +-100000 window)",
+   "n": 28485,
+   "n_path": 2685,
+   "n_benign": 25800
+  },
+  {
+   "step": "groups_with_mixed_labels (DEL/DUP of opposite class overlapping >=50%)",
+   "n": 7
+  },
+  {
+   "step": "matched_type_x_sizebin_common_support",
+   "n": 4718,
+   "n_path": 2359,
+   "n_benign": 2359
+  },
+  {
+   "step": "matched_subsampled_to_~2000_per_class",
+   "n": 4030,
+   "n_path": 2015,
+   "n_benign": 2015
+  }
+ ],
+ "inputs": {
+  "variant_summary.txt.gz": "a6a58df4d9049c9187a79a8fb4e70f1f3b5550e1708c6c74b7be0b268f5032da",
+  "nstd102.GRCh38.variant_call.vcf.gz": "db59e64e7dfce958c7595fb36d4834735e7ff28800384f237b5845c920b62888"
+ },
+ "matched_source_counts": [
+  {
+   "label": 0,
+   "source": "clinvar",
+   "n": 317
+  },
+  {
+   "label": 0,
+   "source": "gnomad_sv",
+   "n": 1698
+  },
+  {
+   "label": 1,
+   "source": "clinvar",
+   "n": 2015
+  }
+ ]
+}

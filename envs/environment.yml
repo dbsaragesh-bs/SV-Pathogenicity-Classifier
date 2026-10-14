@@ -1,0 +1,33 @@
+name: svenv
+channels: [conda-forge, bioconda]
+dependencies:
+  - python=3.11
+  - samtools
+  - bcftools
+  - htslib
+  - bedtools
+  - minimap2
+  - bwa
+  - art
+  - truvari
+  - delly
+  - sniffles
+  - cuteSV
+  - survivor
+  - whatshap
+  - pyfaidx
+  - pysam
+  - cyvcf2
+  - pybedtools
+  - pandas
+  - numpy
+  - scipy
+  - scikit-learn
+  - lightgbm
+  - pyarrow
+  - pyyaml
+  - matplotlib
+  - seaborn
+  - tqdm
+  - pytest
+  - pip
